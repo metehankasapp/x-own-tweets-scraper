@@ -1,54 +1,23 @@
 {
-"update_url": "https://clients2.google.com/service/update2/crx",
-
   "manifest_version": 3,
-  "name": "X Own Tweets Scraper",
-  "version": "0.1.2",
-  "description": "A simple local-only Chrome extension for collecting your own X posts and exporting them as CSV.",
+  "name": "Own Tweets CSV",
+  "version": "1.0.0",
+  "description": "Minimal local-only Chrome extension for exporting your own X posts as CSV.",
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Open X Own Tweets Scraper"
+    "default_title": "Open Own Tweets CSV"
   },
-  "host_permissions": [
-    "https://x.com/*",
-    "https://*.x.com/*"
-  ],
-  "icons": {
-    "16": "icon16.png",
-    "32": "icon32.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  },
-  "permissions": [
-    "storage",
-    "activeTab"
-  ],
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://x.com/*", "https://*.x.com/*"],
   "background": {
-    "service_worker": "service-worker-loader.js",
+    "service_worker": "background.js",
     "type": "module"
   },
   "content_scripts": [
     {
-      "js": [
-        "assets/content.ts-BRNxQfj7.js"
-      ],
-      "matches": [
-        "https://x.com/*",
-        "https://*.x.com/*"
-      ],
+      "js": ["content.js"],
+      "matches": ["https://x.com/*", "https://*.x.com/*"],
       "run_at": "document_idle"
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "matches": [
-        "https://*.x.com/*",
-        "https://x.com/*"
-      ],
-      "resources": [
-        "assets/content.ts-BRNxQfj7.js"
-      ],
-      "use_dynamic_url": false
     }
   ]
 }

@@ -1,72 +1,38 @@
-# X Own Tweets Scraper
+# Own Tweets CSV
 
-Simple Chrome extension for collecting your own X posts into local browser storage and exporting them as CSV.
+Own Tweets CSV is a minimal Chrome extension for collecting your own X posts into local browser storage and exporting them as a CSV file.
 
-## What it does
+## Features
 
 - Runs only on `x.com`
-- Watches loaded tweet cards while you browse
-- Stores captured data in `chrome.storage.local`
-- Filters export by the currently detected account handle
-- Exports a CSV file directly from the popup
-
-## What it does not do
-
-- No remote sync
-- No Google auth
-- No cookies
-- No external API calls
+- Stores everything in `chrome.storage.local`
+- Filters captured tweets by the detected signed-in account
+- Exports a CSV directly from the popup
+- Makes no external network requests
 
 ## Install
 
 1. Open `chrome://extensions`
-2. Enable `Developer mode`
+2. Turn on `Developer mode`
 3. Click `Load unpacked`
-4. Select this project folder
+4. Select this folder
 
 ## Usage
 
-1. Open your own profile on X
-2. Scroll to load more posts
+1. Open your X profile
+2. Scroll to load more tweets
 3. Open the extension popup
 4. Click `Export My Tweets`
 
-If the popup says `Refresh the tab`, reload the current X page once.
+## Project files
 
-## Exported fields
-
-- `tweetId`
-- `handle`
-- `content`
-- `tweetCreatedAt`
-- `likes`
-- `retweets`
-- `replies`
-- `views`
-- `bookmarks`
-- `mediaType`
-- `imageMediaUrls`
-- `videoMediaUrls`
-- `scrapedFromUrl`
-- `profileUrl`
-- `language`
-- `tweetType`
-- `conversationId`
-- `inReplyToTweetId`
-- `inReplyToUserHandle`
-- `retweetOriginalAuthor`
-- `isAd`
-- `hasShowMore`
-- `quotedTweet`
-
-## Project structure
-
-- [`manifest.json`](./manifest.json)
-- [`popup.html`](./popup.html)
-- [`assets/content.ts-BRNxQfj7.js`](./assets/content.ts-BRNxQfj7.js)
-- [`assets/background.ts-U05pi8S_.js`](./assets/background.ts-U05pi8S_.js)
-- [`assets/popup.html-BXzlj2Tp.js`](./assets/popup.html-BXzlj2Tp.js)
+- `manifest.json`
+- `background.js`
+- `content.js`
+- `popup.html`
+- `popup.css`
+- `popup.js`
 
 ## Privacy
 
-Everything stays local in the browser unless you change the code yourself.
+This project is local-only by default. It does not ship with remote sync, analytics, auth flows, or cookie-based login logic.

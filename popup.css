@@ -1,0 +1,178 @@
+:root {
+  --bg: #f4efe6;
+  --ink: #171412;
+  --muted: #6d6359;
+  --panel: rgba(255, 250, 244, 0.82);
+  --line: rgba(23, 20, 18, 0.1);
+  --accent: #c75b33;
+  --accent-deep: #8e3214;
+  --shadow: 0 18px 40px rgba(91, 57, 34, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 360px;
+  min-height: 440px;
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(199, 91, 51, 0.16), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(19, 110, 122, 0.12), transparent 30%),
+    var(--bg);
+}
+
+#app {
+  min-height: 440px;
+}
+
+.shell {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.hero,
+.panel,
+.metric {
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 16px;
+  background: linear-gradient(145deg, rgba(255, 247, 240, 0.98), rgba(255, 252, 248, 0.9));
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.74);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.shape {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), #8e3214);
+  transform: rotate(-12deg);
+}
+
+.hero h1 {
+  margin: 12px 0 6px;
+  font-size: 29px;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.hero p,
+.panel-copy,
+.meta-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.panel {
+  padding: 14px;
+  background: var(--panel);
+}
+
+.status-title,
+.metric-value,
+.account-value {
+  margin-top: 7px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.status-title {
+  font-size: 18px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 112px;
+  gap: 12px;
+}
+
+.metric {
+  padding: 14px;
+  background: rgba(255, 252, 247, 0.88);
+}
+
+.metric.accent {
+  background: linear-gradient(180deg, #fff1e7, #ffe1cc);
+}
+
+.account-value {
+  font-size: 16px;
+  word-break: break-word;
+}
+
+.metric-value {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.steps {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.steps span {
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+}
+
+button {
+  appearance: none;
+  border: 1px solid rgba(15, 14, 12, 0.08);
+  border-radius: 14px;
+  padding: 13px 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #fffaf5;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+button.secondary {
+  background: rgba(255, 252, 247, 0.9);
+  color: var(--ink);
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
