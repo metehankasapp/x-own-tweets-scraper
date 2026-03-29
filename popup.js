@@ -135,39 +135,34 @@ function render(state) {
 
   app.innerHTML = `
     <main class="shell">
-      <section class="hero">
-        <div class="hero-top">
-          <div class="chip">LOCAL ONLY</div>
-          <div class="shape" aria-hidden="true"></div>
-        </div>
+      <header class="header">
         <h1>Own Tweets CSV</h1>
-        <p>Small Chrome extension for exporting your own X posts without any remote sync.</p>
+        <p>Export your posts from X as a local CSV file.</p>
+      </header>
+
+      <section class="panel">
+        <div class="row">
+          <span class="label">Status</span>
+          <span class="badge">Local only</span>
+        </div>
+        <div class="value">${status.title}</div>
+        <p class="help">${status.copy}</p>
       </section>
 
       <section class="panel">
-        <div class="meta-label">Status</div>
-        <div class="status-title">${status.title}</div>
-        <p class="panel-copy">${status.copy}</p>
-      </section>
-
-      <section class="metrics">
-        <div class="metric">
-          <div class="meta-label">Account</div>
-          <div class="account-value">${accountLabel}</div>
+        <div class="item">
+          <span class="label">Account</span>
+          <span class="text">${accountLabel}</span>
         </div>
-        <div class="metric accent">
-          <div class="meta-label">Posts</div>
-          <div class="metric-value">${state.totalCount}</div>
+        <div class="item">
+          <span class="label">Posts</span>
+          <span class="count">${state.totalCount}</span>
         </div>
       </section>
 
       <section class="panel">
-        <div class="meta-label">Flow</div>
-        <div class="steps">
-          <span>1. Open your X profile</span>
-          <span>2. Scroll to load more tweets</span>
-          <span>3. Export a local CSV</span>
-        </div>
+        <span class="label">How it works</span>
+        <p class="help">Open your X profile, scroll to load tweets, then export the collected data.</p>
       </section>
 
       <section class="actions">
@@ -191,17 +186,13 @@ function render(state) {
 function renderError(message) {
   app.innerHTML = `
     <main class="shell">
-      <section class="hero">
-        <div class="hero-top">
-          <div class="chip">LOCAL ONLY</div>
-          <div class="shape" aria-hidden="true"></div>
-        </div>
+      <header class="header">
         <h1>Own Tweets CSV</h1>
         <p>Popup failed to load.</p>
-      </section>
+      </header>
       <section class="panel">
-        <div class="meta-label">Error</div>
-        <div class="status-title">${message}</div>
+        <span class="label">Error</span>
+        <div class="value">${message}</div>
       </section>
     </main>
   `;
